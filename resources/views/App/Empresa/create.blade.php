@@ -6,7 +6,7 @@
     <div class="shadow p-3 mb-5 bg-white rounded mx-2">
         <div>
             <h2 class="text-center mb-2">
-                <u>Empresa</u>
+                <u>{{isset($viewData['empresa']) && $viewData['empresa']['razon_social'] ? $viewData['empresa']['razon_social'] : 'Empresa' }}</u>
             </h2>
             <form method="POST" action="{{ route('empresa.update-store') }}">
                 @csrf
