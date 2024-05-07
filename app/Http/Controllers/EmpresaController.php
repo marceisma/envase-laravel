@@ -18,16 +18,20 @@ class EmpresaController extends Controller
         return view('App.Empresa.panel', ['viewData' => $viewData]);
     }
 
-    public function create() {
+    public function create($id = null) {
 
-        $idEmpresa = 206940;
-        $empresa = \App\Models\Empresa::find($idEmpresa);
+        if ($id) {
+            $empresa = \App\Models\Empresa::find($id);
 
-        $empresa->categorias = \App\Models\CategoriaEmpresa::
-            leftJoin('categorias_empresa','categorias_empresa.id','=','categoria_empresa.id_categorias_empresa')    
-            ->select('categorias_empresa.nombre')
-            ->where('id_empresa','=',$idEmpresa)
-            ->get()->toArray();
+            $empresa->categorias = \App\Models\CategoriaEmpresa::
+                leftJoin('categorias_empresa','categorias_empresa.id','=','categoria_empresa.id_categorias_empresa')    
+                ->select('categorias_empresa.nombre')
+                ->where('id_empresa','=',$id)
+                ->get()->toArray();
+        } else {
+            $empresa = null;
+        }
+        
 
         $viewData = [
             'provincias' => \App\Models\Provincia::all()->toArray(),

@@ -33,27 +33,27 @@
                 </li>            
                 <li class="nav-item">
                     <div class="d-flex">
-                        <a href="https://www.facebook.com/ETIFeventosytecnologia">
+                        <a target="blank" href="https://www.facebook.com/ETIFeventosytecnologia">
                             <span class="icon-navbar">
                                 <i class="fa-brands fa-facebook"></i>
                             </span>
                         </a>
-                        <a href="https://twitter.com/etif_pharma">
+                        <a target="blank" href="https://twitter.com/etif_pharma">
                             <span class="icon-navbar">
                                 <i class="fa-brands fa-twitter"></i>
                             </span>
                         </a>
-                        <a href="https://www.instagram.com/etif_pharma/">
+                        <a target="blank" href="https://www.instagram.com/etif_pharma/">
                             <span class="icon-navbar">
                                 <i class="fa-brands fa-instagram"></i>
                             </span>
                         </a>
-                        <a href="https://www.linkedin.com/company/2670349?goback=">
+                        <a target="blank" href="https://www.linkedin.com/company/2670349?goback=">
                             <span class="icon-navbar">
                                 <i class="fa-brands fa-linkedin"></i>
                             </span>
                         </a>
-                        <a href="https://www.youtube.com/user/ETIFLatinoamerica">
+                        <a target="blank" href="https://www.youtube.com/user/ETIFLatinoamerica">
                             <span class="icon-navbar">
                                 <i class="fa-brands fa-youtube"></i>
                             </span>

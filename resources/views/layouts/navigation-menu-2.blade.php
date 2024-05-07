@@ -19,7 +19,7 @@
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{route('empresa.panel')}}">Panel</a>
-                        <a class="dropdown-item" href="{{route('empresa.create')}}">Nueva Empresa</a>
+                        <a class="dropdown-item" href="{{route('empresa.create', ['id' => 0])}}">Nueva Empresa</a>
                     </div>
                 </li>
                 <!--

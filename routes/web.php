@@ -26,7 +26,7 @@ Route::middleware(['auth'])->group(function() {
 
     Route::prefix('empresa')->name('empresa.')->group(function() {
         Route::get('/panel', [EmpresaController::class, 'panel'])->name('panel');
-        Route::get('/create', [EmpresaController::class, 'create'])->name('create');
+        Route::get('/create/{id}', [EmpresaController::class, 'create'])->name('create');
         Route::post('/update-store', [EmpresaController::class, 'updateStore'])->name('update-store');
     });
     

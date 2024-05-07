@@ -26,7 +26,7 @@
                         @foreach ($viewData['empresas'] as $item)
                             <tr style="white-space: nowrap;">
                                 <td class="p-0">{{$item['cuit']}}</td>
-                                <td class="p-0"><b><a href="">{{$item['razon_social']}}</a></b></td>
+                                <td class="p-0"><b><a href="{{route('empresa.create', ['id' => $item['id']])}}">{{$item['razon_social'] ? $item['razon_social'] : 'Sin Nombre'}}</a></b></td>
                                 <td class="p-0">{{$item['telefono']}}</td>
                                 <td class="p-0">{{$item['email']}}</td>
                             </tr>
