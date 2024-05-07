@@ -15,7 +15,7 @@
                         <h4><u>Datos Principales</u></h4>
                     </div>
                     <div class="col-12">
-                        <button class="btn btn-success mt-2">Actualizar Logo</button>
+                        <button class="btn btn-success mt-2" type="button">Actualizar Logo</button>
                     </div>
                     <div class="col-12 col-md-4 px-2 mt-2">
                         <label for="">CUIT</label>
