@@ -77,6 +77,7 @@ abbr:where([title]) {
 Remove the default font size and weight for headings.
 */
 
+/*
 h1,
 h2,
 h3,
@@ -86,6 +87,7 @@ h6 {
   font-size: inherit;
   font-weight: inherit;
 }
+*/
 
 /*
 Reset links to optimize for opt-in styling instead of opt-out.
@@ -203,7 +205,7 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button; /* 1 */
-  background-color: transparent; /* 2 */
+  /*background-color: transparent; /* 2 */
   background-image: none; /* 2 */
 }
 

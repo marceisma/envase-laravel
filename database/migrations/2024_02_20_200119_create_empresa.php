@@ -16,18 +16,38 @@ class CreateEmpresa extends Migration
         Schema::create('empresa', function (Blueprint $table) {
             $table->id();
 
-            $table->string('nombre');
-            $table->string('nombre_fantasía')->nullable();
-            $table->string('cuit');
+            $table->string('cuit')->nullable();
             $table->string('codigo_iae')->nullable();
-            $table->string('dirección_postal')->nullable();
-            $table->string('pagina_web')->nullable();
-            $table->string('telefono');
-            $table->string('email');
-            $table->string('redes_sociales');
+            $table->string('razon_social')->nullable();
+            $table->string('nombre_fantasia')->nullable();
+
+            $table->unsignedBigInteger('id_pais')->nullable();
+            $table->unsignedBigInteger('id_provincia')->nullable();
+            $table->unsignedBigInteger('id_ciudad')->nullable();
+            $table->string('provincia')->nullable();
+            $table->string('ciudad')->nullable();
+
+            $table->string('codigo_postal')->nullable();
+            $table->string('direccion')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('whatsapp')->nullable();
+            $table->string('email')->nullable();
+            $table->string('web')->nullable();
+            $table->date('fecha_alta')->nullable();
+            $table->date('fecha_baja')->nullable();
+            $table->string('recibe_email')->nullable();
+            $table->text('descripcion')->nullable();
+            $table->boolean('exportador')->nullable();
+            $table->boolean('importador')->nullable();
+            $table->boolean('representante')->nullable();
+            $table->boolean('distribuidor')->nullable();
+            $table->boolean('fabricante')->nullable();
+            
+            //$table->string('redes_sociales');
 
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 

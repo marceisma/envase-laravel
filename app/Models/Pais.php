@@ -5,15 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Permiso extends Model
+class Pais extends Model
 {
-    protected $table = 'permiso';
+    protected $table = 'pais';
     use SoftDeletes;
 
     protected $fillable = [
         'id',
-        'codigo',
-        'descripcion',
+        'name',
+        'nombre',
+        'iso',
         'created_at',
         'updated_at',
         'deleted_at'

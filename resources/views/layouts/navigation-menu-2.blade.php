@@ -1,5 +1,5 @@
 <header class="bg-white">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border shadow-sm">
         <!--<a class="navbar-brand" href="#">Navbar</a>-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,5 +38,7 @@
     .nav-link {
         color: black !important;
     }
-    
+    .nav-link:hover {
+        text-decoration: underline;
+    }
 </style>

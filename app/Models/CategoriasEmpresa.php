@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Permiso extends Model
+class CategoriasEmpresa extends Model
 {
-    protected $table = 'permiso';
+    protected $table = 'categorias_empresa';
     use SoftDeletes;
 
+    protected $primaryKey = 'id';
     protected $fillable = [
         'id',
-        'codigo',
-        'descripcion',
+        'nombre',
+        'id_padre',
+        'nivel',
         'created_at',
         'updated_at',
         'deleted_at'

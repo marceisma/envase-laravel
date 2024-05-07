@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProvincia extends Migration
+class CreateCategoriasEmpresa extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateProvincia extends Migration
      */
     public function up()
     {
-        Schema::create('provincia', function (Blueprint $table) {
+        Schema::create('categorias_empresa', function (Blueprint $table) {
             $table->id();
 
-            $table->string('descripcion');
+            $table->string('nombre')->nullable();
+            $table->unsignedBigInteger('id_padre')->nullable();
+            $table->integer('nivel')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
@@ -30,6 +32,6 @@ class CreateProvincia extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('provincia');
+        Schema::dropIfExists('categorias_empresas');
     }
 }
