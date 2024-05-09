@@ -25,9 +25,13 @@ class EmpresaController extends Controller
 
             $empresa->categorias = \App\Models\CategoriaEmpresa::
                 leftJoin('categorias_empresa','categorias_empresa.id','=','categoria_empresa.id_categorias_empresa')    
-                ->select('categorias_empresa.nombre')
-                ->where('id_empresa','=',$id)
+                ->select('categoria_empresa.id','categorias_empresa.nombre')
+                ->where('categoria_empresa.id_empresa','=',$id)
                 ->get()->toArray();
+
+            $empresa->logo = \App\Models\EmpresaLogo::where('id_empresa','=',$empresa->id)->orderBy('created_at','desc')->first();
+
+            
         } else {
             $empresa = null;
         }
@@ -48,9 +52,26 @@ class EmpresaController extends Controller
 
         if ($request->id) {
             $item = Empresa::find($request->id);
+
+            $categorias = \App\Models\CategoriaEmpresa::
+                leftJoin('categorias_empresa','categorias_empresa.id','=','categoria_empresa.id_categorias_empresa')    
+                ->select('categoria_empresa.id')
+                ->where('id_empresa','=',$item['id'])
+                ->get();
+
+            
+            for ($i=0; $i < count($categorias); $i++) { 
+//                dd('categoria'.$categorias[$i]['id'], $request->get('categoria'.$categorias[$i]['id']));
+                if ($request->get('categoria'.$categorias[$i]['id']) == '1') {
+                    $categorias[$i]->delete();
+                }
+                
+            }
         } else {
             $item = new Empresa();
         }
+
+        
 
         $item->cuit = $request->cuit;
         $item->codigo_iae = $request->codigo_iae;
@@ -75,6 +96,17 @@ class EmpresaController extends Controller
         $item->fecha_alta = $request->fecha_alta;
         $item->fecha_baja = $request->fecha_baja;
         $item->save();
+
+
+
+        if ($request->logo) {
+            $newFile = new \App\Models\EmpresaLogo();
+            $newFile->id_empresa = $item->id;
+            $newFile->name = $request->logo->getClientOriginalName();
+            $newFile->path = $request->logo->store("public/empresa/logo");
+            $newFile->path = str_replace("public/empresa/logo/", '', $newFile->path);
+            $newFile->save();
+        }
 
         return redirect(route('empresa.panel'));
     }

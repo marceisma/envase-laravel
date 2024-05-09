@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCategoriaEmpresa extends Migration
+class CreateEmpresaLogo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,18 @@ class AddCategoriaEmpresa extends Migration
      */
     public function up()
     {
-        Schema::table('categoria_empresa', function (Blueprint $table) {
+        Schema::create('empresa_logo', function (Blueprint $table) {
+            $table->id();
 
-            Schema::disableForeignKeyConstraints();
+            $table->unsignedBigInteger('id_empresa')->nullable();
+
+            $table->string('name')->nullable();
+            $table->string('path')->nullable();
+
+            $table->timestamps();
+            $table->softDeletes();
+
             $table->foreign('id_empresa')->references('id')->on('empresa');
-            $table->foreign('id_categorias_empresa')->references('id')->on('categorias_empresa');
-            Schema::enableForeignKeyConstraints();
         });
     }
 
@@ -29,6 +35,6 @@ class AddCategoriaEmpresa extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('empresa_logo');
     }
 }
